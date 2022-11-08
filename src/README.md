@@ -70,6 +70,8 @@ Replace all spaces in filenames to "_".
 1. Set all parameters.
 2. Process filename.
 
+status: finished
+
 ## <a name="7"></a>test.bat
 
 Testing all kinds of batch files from the web.
