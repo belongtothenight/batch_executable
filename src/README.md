@@ -45,6 +45,18 @@ status: finished
 
 Get first few seconds of videos.
 
+1. Set all parameters.
+2. Display all files in folder.
+3. Process file if it's MP4 format, and export processing result.
+
+status: not started
+
 ## <a name="5"></a>deploy_batch.bat
 
 Copy all files in "src" to directory where I can launch with single line of code in cmd.
+
+1. Display all files in folder.
+2. Move all files.
+3. Export log.
+
+status: not started
