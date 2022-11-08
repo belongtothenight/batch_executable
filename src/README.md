@@ -41,7 +41,7 @@ Remove all frozen frames in videos.
 
 status: finished
 
-## <a name="4"></a>video_get_sample.bat
+## <a name="4"></a>video_cut_sample.bat
 
 Get first few seconds of videos.
 
@@ -55,8 +55,8 @@ status: not started
 
 Copy all files in "src" to directory where I can launch with single line of code in cmd.
 
-1. Display all files in folder.
-2. Move all files.
-3. Export log.
+1. Set all parameters.
+2. Display all files in folder.
+3. Move all files and export log.
 
-status: not started
+status: finished

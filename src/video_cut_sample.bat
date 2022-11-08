@@ -1,0 +1,49 @@
+@REM This file can automatically remove the frozen frame of all video file in side designated folder.
+@REM FFmpeg is required.
+@ECHO OFF
+SETLOCAL ENABLEDELAYEDEXPANSION
+
+@REM video folder
+SET folder=C:\Users\dachu\Videos\Minecraft\
+@REM log file
+SET recordfile=record.txt
+@REM ffmped settings
+SET hi=100
+SET lo=100
+SET frac=1
+SET max=20
+
+FOR /F "tokens=2" %%i in ('date /t') do set mydate=%%i
+SET mytime=%time%
+
+ECHO bat^>^> starting video_remove_frozen_frame.bat
+ECHO bat^>^> This file automatically remove the frozen frame of all video file in side designated folder.
+ECHO bat^>^> Make sure FFmpeg is installed.
+ECHO bat^>^> Make sure the video is located in %folder%
+ECHO bat^>^> press CTRL+C to exit
+ECHO bat^>^> press ENTER to continue^
+PAUSE
+
+ECHO.>>%folder%^%recordfile%
+ECHO bat^>^> starting processing>>%folder%^%recordfile%
+CALL cd %folder%
+CALL dir
+ECHO.
+
+FOR /f "delims=|" %%f in ('dir /b %folder%') do (
+    ECHO.
+    ECHO.
+    ECHO ------------------------------------------------------------------------------------
+    SET filename=%%f
+    SET format=!filename:~-3!
+    IF "!format!"=="mp4" (
+        SET newfilename=!filename:~0,-4! ffr.mp4
+        ECHO bat^>^> processing:        !filename!
+        CALL ffmpeg -v quiet -stats -i "!filename!" -vf mpdecimate=hi=%hi%:lo=%lo%%:frac=%frac%:max=%max%,setpts=N/FRAME_RATE/TB -an "!newfilename!"
+        ECHO bat^>^> %mydate%:%mytime%  finished:          !newfilename!>>%folder%^%recordfile%
+    ) ELSE (
+        ECHO bat^>^> format:            !format!
+        ECHO bat^>^> %mydate%:%mytime%  skipping:          !filename!>>%folder%^%recordfile%
+    )
+)
+PAUSE
