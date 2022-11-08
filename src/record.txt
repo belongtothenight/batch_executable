@@ -53,3 +53,55 @@ deploy_batch.bat>> 2022/11/08:17:42:36.31 >> copying node_red.bat
 deploy_batch.bat>> 2022/11/08:17:42:36.31 >> skipping README.md
 deploy_batch.bat>> 2022/11/08:17:42:36.31 >> skipping record.txt
 deploy_batch.bat>> 2022/11/08:17:42:36.31 >> copying video_remove_frozen_frame.bat
+
+deploy_batch.bat>> 2022/11/08:18:59:26.19 >> copying deploy_batch.bat
+deploy_batch.bat>> 2022/11/08:18:59:26.19 >> copying minecraft_record.bat
+deploy_batch.bat>> 2022/11/08:18:59:26.19 >> copying node_red.bat
+deploy_batch.bat>> 2022/11/08:18:59:26.19 >> skipping README.md
+deploy_batch.bat>> 2022/11/08:18:59:26.19 >> skipping record.txt
+deploy_batch.bat>> 2022/11/08:18:59:26.19 >> copying video_cut_sample.bat
+deploy_batch.bat>> 2022/11/08:18:59:26.19 >> copying video_remove_frozen_frame.bat
+
+deploy_batch.bat>> 2022/11/08:21:12:35.93 >> copying deploy_batch.bat
+deploy_batch.bat>> 2022/11/08:21:12:35.93 >> copying filename_remove_space.bat
+deploy_batch.bat>> 2022/11/08:21:12:35.93 >> copying minecraft_record.bat
+deploy_batch.bat>> 2022/11/08:21:12:35.93 >> copying node_red.bat
+deploy_batch.bat>> 2022/11/08:21:12:35.93 >> skipping README.md
+deploy_batch.bat>> 2022/11/08:21:12:35.93 >> skipping record.txt
+deploy_batch.bat>> 2022/11/08:21:12:35.93 >> copying test.bat
+deploy_batch.bat>> 2022/11/08:21:12:35.93 >> copying video_cut_sample.bat
+deploy_batch.bat>> 2022/11/08:21:12:35.93 >> copying video_remove_frozen_frame.bat
+deploy_batch.bat>> 2022/11/08:21:12:35.93 >> All files are copied. 
+
+deploy_batch.bat>> 2022/11/08:21:38:17.05 >> copying deploy_batch.bat
+deploy_batch.bat>> 2022/11/08:21:38:17.05 >> copying filename_remove_space.bat
+deploy_batch.bat>> 2022/11/08:21:38:17.05 >> copying minecraft_record.bat
+deploy_batch.bat>> 2022/11/08:21:38:17.05 >> copying node_red.bat
+deploy_batch.bat>> 2022/11/08:21:38:17.05 >> skipping README.md
+deploy_batch.bat>> 2022/11/08:21:38:17.05 >> skipping record.txt
+deploy_batch.bat>> 2022/11/08:21:38:17.05 >> copying test.bat
+deploy_batch.bat>> 2022/11/08:21:38:17.05 >> copying video_cut_sample.bat
+deploy_batch.bat>> 2022/11/08:21:38:17.05 >> copying video_remove_frozen_frame.bat
+deploy_batch.bat>> 2022/11/08:21:38:17.05 >> All files are copied. 
+
+deploy_batch.bat>> 2022/11/08:21:47:29.97 >> copying deploy_batch.bat
+deploy_batch.bat>> 2022/11/08:21:47:29.97 >> copying filename_remove_space.bat
+deploy_batch.bat>> 2022/11/08:21:47:29.97 >> copying minecraft_record.bat
+deploy_batch.bat>> 2022/11/08:21:47:29.97 >> copying node_red.bat
+deploy_batch.bat>> 2022/11/08:21:47:29.97 >> skipping README.md
+deploy_batch.bat>> 2022/11/08:21:47:29.97 >> skipping record.txt
+deploy_batch.bat>> 2022/11/08:21:47:29.97 >> copying test.bat
+deploy_batch.bat>> 2022/11/08:21:47:29.97 >> copying video_cut_sample.bat
+deploy_batch.bat>> 2022/11/08:21:47:29.97 >> copying video_remove_frozen_frame.bat
+deploy_batch.bat>> 2022/11/08:21:47:29.97 >> All files are copied. 
+
+deploy_batch.bat>> 2022/11/08:21:53:42.81 >> copying deploy_batch.bat
+deploy_batch.bat>> 2022/11/08:21:53:42.81 >> copying filename_remove_space.bat
+deploy_batch.bat>> 2022/11/08:21:53:42.81 >> copying minecraft_record.bat
+deploy_batch.bat>> 2022/11/08:21:53:42.81 >> copying node_red.bat
+deploy_batch.bat>> 2022/11/08:21:53:42.81 >> skipping README.md
+deploy_batch.bat>> 2022/11/08:21:53:42.81 >> skipping record.txt
+deploy_batch.bat>> 2022/11/08:21:53:42.81 >> copying test.bat
+deploy_batch.bat>> 2022/11/08:21:53:42.81 >> copying video_cut_sample.bat
+deploy_batch.bat>> 2022/11/08:21:53:42.81 >> copying video_remove_frozen_frame.bat
+deploy_batch.bat>> 2022/11/08:21:53:42.81 >> All files are copied. 

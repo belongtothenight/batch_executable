@@ -1,49 +1,107 @@
-@REM This file can automatically remove the frozen frame of all video file in side designated folder.
-@REM FFmpeg is required.
 @ECHO OFF
 SETLOCAL ENABLEDELAYEDEXPANSION
+:PROMPT
 
-@REM video folder
-SET folder=C:\Users\dachu\Videos\Minecraft\
-@REM log file
+@SET l1=This file cut first few seconds of video file and save it as new file.
+@SET l2=FFmpeg is required.
+ECHO.
+ECHO video_cut_sample.bat^>^> %l1%
+ECHO video_cut_sample.bat^>^> %l2%
+ECHO.
+
+@REM 1. Set parameters
+SET /P "srcfolder=video_cut_sample.bat^>^> Please input the source folder path: "
+SET srcfolder=%srcfolder%\ 
+SET /P "dstfolder=video_cut_sample.bat^>^> Please input the destination folder path: "
+SET dstfolder=%dstfolder%\ 
+SET /P startsecond=video_cut_sample.bat^>^> Please input the cut start in second: 
+SET /P durationsecond=video_cut_sample.bat^>^> Please input the cut duration in second: 
 SET recordfile=record.txt
-@REM ffmped settings
-SET hi=100
-SET lo=100
-SET frac=1
-SET max=20
-
 FOR /F "tokens=2" %%i in ('date /t') do set mydate=%%i
 SET mytime=%time%
 
-ECHO bat^>^> starting video_remove_frozen_frame.bat
-ECHO bat^>^> This file automatically remove the frozen frame of all video file in side designated folder.
-ECHO bat^>^> Make sure FFmpeg is installed.
-ECHO bat^>^> Make sure the video is located in %folder%
-ECHO bat^>^> press CTRL+C to exit
-ECHO bat^>^> press ENTER to continue^
-PAUSE
-
-ECHO.>>%folder%^%recordfile%
-ECHO bat^>^> starting processing>>%folder%^%recordfile%
-CALL cd %folder%
-CALL dir
-ECHO.
-
-FOR /f "delims=|" %%f in ('dir /b %folder%') do (
-    ECHO.
-    ECHO.
-    ECHO ------------------------------------------------------------------------------------
-    SET filename=%%f
-    SET format=!filename:~-3!
-    IF "!format!"=="mp4" (
-        SET newfilename=!filename:~0,-4! ffr.mp4
-        ECHO bat^>^> processing:        !filename!
-        CALL ffmpeg -v quiet -stats -i "!filename!" -vf mpdecimate=hi=%hi%:lo=%lo%%:frac=%frac%:max=%max%,setpts=N/FRAME_RATE/TB -an "!newfilename!"
-        ECHO bat^>^> %mydate%:%mytime%  finished:          !newfilename!>>%folder%^%recordfile%
+@REM 2. Display all files in folder.
+SET /A "len=0"
+SET filelist=
+FOR /F "delims=|" %%a IN ('dir /b %srcfolder%') DO (
+    SET filename="%%a"
+    SET format="!filename:~-4,-1!"
+    @REM ECHO !format!
+    IF "!format!"==""mp4"" (
+        SET /A "len+=1"
+        SET filelist=!filelist! !filename!
     ) ELSE (
-        ECHO bat^>^> format:            !format!
-        ECHO bat^>^> %mydate%:%mytime%  skipping:          !filename!>>%folder%^%recordfile%
+        @REM ECHO skip !filename!
     )
 )
+ECHO.
+ECHO video_cut_sample.bat^>^> available videos: 
+ECHO.
+FOR %%a IN (%filelist%) DO (
+    ECHO %%a
+)
+ECHO.
+
+ECHO video_cut_sample.bat^>^> total processing file: !len!
+ECHO.
+
+SET /P AREYOUSURE=video_cut_sample.bat^>^> cut the Videos (Y/[N]) ?
+IF /I "%AREYOUSURE%" NEQ "Y" GOTO END
+ECHO.
+
+@REM 3. Process filepath
+@REM get src file path
+SET srcfilelist=
+ECHO video_cut_sample.bat^>^> source file path:
+ECHO.
+FOR %%a IN (%filelist%) DO (
+    SET filename_temp=%%a
+    SET filename_temp=^"%srcfolder:~0,-1%!filename_temp:~1%!
+    SET srcfilelist=!srcfilelist! !filename_temp!
+)
+@REM FOR %%a IN (%srcfilelist%) DO (
+@REM     ECHO %%a
+@REM )
+ECHO.
+
+@REM get dst file path
+SET newfilelist=
+ECHO video_cut_sample.bat^>^> export file path:
+ECHO.
+FOR %%a IN (%filelist%) DO (
+    SET filename_temp="%%a"
+    SET filename_temp=^"%dstfolder:~0,-1%!filename_temp:~2,-6!_cut%startsecond%-%durationsecond%.mp4^"
+    SET newfilelist=!newfilelist! !filename_temp!
+)
+@REM FOR %%a IN (%newfilelist%) DO (
+@REM     ECHO %%a
+@REM )
+ECHO.
+
+@REM trim left space of list
+SET "srcfilelist=%srcfilelist:~1%"
+SET "newfilelist=%newfilelist:~1%"
+
+@REM convert list to array
+SET "i=0"
+SET "srcfilelist[!i!]=%srcfilelist: =" & SET /A i+=1 & SET "srcfilelist[!i!]=%"
+SET "i=0"
+SET "newfilelist[!i!]=%newfilelist: =" & SET /A i+=1 & SET "newfilelist[!i!]=%"
+SET "i="
+
+@REM 4. Cut video and export log.
+ECHO video_cut_sample.bat^>^> start cutting videos.
+ECHO.>>%dstfolder:~0,-1%^%recordfile%
+SET /A "len-=1"
+FOR /L %%a IN (0, 1, %len%) DO (
+    ECHO video_cut_sample.bat^>^>  %mydate%:%mytime% ^>^> cut !srcfilelist[%%a]! to !newfilelist[%%a]!>>%dstfolder:~0,-1%^%recordfile%
+    ffmpeg -ss %startsecond% -i !srcfilelist[%%a]! -t %durationsecond% -c copy !newfilelist[%%a]!
+)
+
+@REM 5. END
+ECHO.
+ECHO video_cut_sample.bat^>^> %mydate%:%mytime% ^>^> All files are copied.
+ECHO.
 PAUSE
+:END
+ENDLOCAL

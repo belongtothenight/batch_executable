@@ -38,5 +38,5 @@ FOR /F "tokens=*" %%a IN ('dir /b %srcfolder%') DO (
 )
 
 ECHO.
-ECHO deploy_batch.bat^>^> %mydate%:%mytime% ^>^> All files are copied. >>%srcfolder%^%recordfile%
+ECHO deploy_batch.bat^>^> %mydate%:%mytime% ^>^> All files are copied. >>%srcfolder%\%recordfile%
 PAUSE
