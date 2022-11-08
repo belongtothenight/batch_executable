@@ -9,6 +9,8 @@ This is the detail of each batch files.
 3. [video_remove_frozen_frame.bat](#3)
 4. [video_get_sample.bat](#4)
 5. [deploy_batch.bat](#5)
+6. [filename_remove_space.bat](#6)
+7. [test.bat](#7)
 
 ## <a name="1"></a>minecraft_record.bat
 
@@ -60,3 +62,14 @@ Copy all files in "src" to directory where I can launch with single line of code
 3. Move all files and export log.
 
 status: finished
+
+## <a name="6"></a>filename_remove_space.bat
+
+Replace all spaces in filenames to "_".
+
+1. Set all parameters.
+2. Process filename.
+
+## <a name="7"></a>test.bat
+
+Testing all kinds of batch files from the web.
