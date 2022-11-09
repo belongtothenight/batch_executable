@@ -14,3 +14,5 @@
 | 5   | deploy_batch.bat              | Copy all batch file here to directory where they can be executed with cmd.                                                         |
 | 6   | filename_remove_space.bat     | Remove spaces in filenames.                                                                                                        |
 | 7   | test.bat                      | Just for test.                                                                                                                     |
+
+[Idea for the next batch file - Combine all video inside same directory.](https://videoconverter.wondershare.com/video-merger/ffmpeg-merge-videos.html)
