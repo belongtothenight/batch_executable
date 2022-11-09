@@ -55,8 +55,9 @@ call npm --version
 
 :END
 @REM start node-red
-echo node_red.bat^>^> Awakening node-red...
+echo node_red.bat^>^> Opening node-red webpage...
 start "" http://127.0.0.1:1880/
+echo node_red.bat^>^> Awakening node-red...
 call node-red
 pause
 endlocal
