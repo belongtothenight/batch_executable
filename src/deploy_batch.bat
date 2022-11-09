@@ -23,20 +23,24 @@ CALL dir
 PAUSE
 
 @REM 3. Copy all files and export log.
+ECHO.
 ECHO.>>%srcfolder%\%recordfile%
 FOR /F "tokens=*" %%a IN ('dir /b %srcfolder%') DO (
     SET filename=%%a
     SET format=!filename:~-3!
     IF "!format!"=="bat" (
-        ECHO deploy_batch.bat^>^> %mydate%:%mytime% ^>^> copying !filename!>>%srcfolder%\%recordfile%
+        ECHO deploy_batch.bat^>^> %mydate%:%mytime% ^>^> copied !filename!
+        ECHO deploy_batch.bat^>^> %mydate%:%mytime% ^>^> copied !filename!>>%srcfolder%\%recordfile%
         SET srcfile=%srcfolder%\!filename!
         COPY /Y !srcfile! "%dstfolder%"
     ) ELSE (
-        ECHO deploy_batch.bat^>^> %mydate%:%mytime% ^>^> skipping !filename!>>%srcfolder%\%recordfile%
+        ECHO deploy_batch.bat^>^> %mydate%:%mytime% ^>^> skipped !filename!
+        ECHO deploy_batch.bat^>^> %mydate%:%mytime% ^>^> skipped !filename!>>%srcfolder%\%recordfile%
     )
     
 )
 
 ECHO.
-ECHO deploy_batch.bat^>^> %mydate%:%mytime% ^>^> All files are copied. >>%srcfolder%\%recordfile%
+ECHO deploy_batch.bat^>^> %mydate%:%mytime% ^>^> All files are copied.
+ECHO deploy_batch.bat^>^> %mydate%:%mytime% ^>^> All files are copied.>>%srcfolder%\%recordfile%
 PAUSE

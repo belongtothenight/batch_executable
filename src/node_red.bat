@@ -30,9 +30,9 @@ echo node_red.bat^>^> node-red version: %node-red_version% (latest: %node-red_lv
 @REM ECHO %Line%
 
 @REM update or not
-SET /P ANS1=node_red.bat^>^> Do you want to update "node.js"? (Y/[N])?
-SET /P ANS2=node_red.bat^>^> Do you want to update "npm"? (Y/[N])?
-SET /P ANS3=node_red.bat^>^> Do you want to update "node-red"? (Y/[N])?
+SET /P ANS1=node_red.bat^>^> Do you want to update "node.js"? (Y/[N])? 
+SET /P ANS2=node_red.bat^>^> Do you want to update "npm"? (Y/[N])? 
+SET /P ANS3=node_red.bat^>^> Do you want to update "node-red"? (Y/[N])? 
 
 @REM update node.js
 IF /I "%ANS1%" NEQ "Y" GOTO END
