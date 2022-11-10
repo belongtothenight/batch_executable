@@ -15,4 +15,8 @@
 | 6   | filename_remove_space.bat     | Remove spaces in filenames.                                                                                                        |
 | 7   | test.bat                      | Just for test.                                                                                                                     |
 
-[Idea for the next batch file - Combine all video inside same directory.](https://videoconverter.wondershare.com/video-merger/ffmpeg-merge-videos.html)
+## Future idea
+
+1. [Combine.](https://videoconverter.wondershare.com/video-merger/ffmpeg-merge-videos.html)
+2. [Sharpen.](https://ffmpeg.org/ffmpeg-filters.html#sharpen_005fnpp)
+3. [Resize.](https://democreator.wondershare.com/video-editor/ffmpeg-resize-video.html)
