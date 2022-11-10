@@ -13,7 +13,6 @@
 | 4   | video_cut_sample.bat          | Get the first few seconds of video for testing processes like upscaling and add frame.                                             |
 | 5   | deploy_batch.bat              | Copy all batch file here to directory where they can be executed with cmd.                                                         |
 | 6   | filename_remove_space.bat     | Remove spaces in filenames.                                                                                                        |
-| 7   | test.bat                      | Just for test.                                                                                                                     |
 
 ## Future idea
 

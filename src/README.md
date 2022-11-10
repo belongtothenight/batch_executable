@@ -10,7 +10,6 @@ This is the detail of each batch files.
 4. [video_get_sample.bat](#4)
 5. [deploy_batch.bat](#5)
 6. [filename_remove_space.bat](#6)
-7. [test.bat](#7)
 
 ## <a name="1"></a>minecraft_record.bat
 
@@ -71,7 +70,3 @@ Replace all spaces in filenames to "_".
 2. Process filename.
 
 status: finished
-
-## <a name="7"></a>test.bat
-
-Testing all kinds of batch files from the web.
