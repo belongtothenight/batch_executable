@@ -13,6 +13,8 @@
 | 4   | video_cut_sample.bat          | Get the first few seconds of video for testing processes like upscaling and add frame.                                             |
 | 5   | deploy_batch.bat              | Copy all batch file here to directory where they can be executed with cmd.                                                         |
 | 6   | filename_remove_space.bat     | Remove spaces in filenames.                                                                                                        |
+| 7   | list_mp4.bat                  | Generate a list of mp4 files stored in specific directory.                                                                         |
+| 8   | compress_mp4.bat              | Based on the list generated above, compress all files listed within.                                                               |
 
 ## Future idea
 
@@ -20,5 +22,3 @@
 2. [Sharpen videos.](https://ffmpeg.org/ffmpeg-filters.html#sharpen_005fnpp)
 3. [Resize videos.](https://democreator.wondershare.com/video-editor/ffmpeg-resize-video.html)
 4. [Start application without waiting in a batch file.](https://stackoverflow.com/questions/2937569/how-to-start-an-application-without-waiting-in-a-batch-file)
-5. [List out all directories with mp4 files inside and generate a txt with it.](https://www.google.com/search?client=firefox-b-d&q=batch+file+recursive+directory+listing)
-6. [Use the above mentioned txt to compress all mp4 files.](https://www.youtube.com/watch?v=I1NUym5C6vY)
