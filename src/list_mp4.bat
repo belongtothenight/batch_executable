@@ -7,10 +7,10 @@ ECHO.>> %record%
 
 CALL :VARIABLES
 CALL :TREEPROCESS %d1%
-@REM CALL :TREEPROCESS %d2%
+CALL :TREEPROCESS %d2%
 CALL :TREEPROCESS %d3%
 @REM CALL :TREEPROCESS %d4%
-CALL :TREEPROCESS %d5%
+@REM CALL :TREEPROCESS %d5%
 @REM CALL :TREEPROCESS %d6%
 
 ECHO folder_contain_mp4.bat ^>^> %mydate%:%mytime% ^>^> finished exporting log of mp4 files.
@@ -23,14 +23,14 @@ SET record_folder="D:\Note_Database\Subject\CPDWG Custom Program Developed With 
 SET record="%record_folder:~1,-1%\mp4_files.txt"
 FOR /F "tokens=2" %%i in ('date /t') do set mydate=%%i
 SET mytime=%time%
-@REM SET d1="D:\"
-@REM SET d2="E:\"
-@REM SET d3="F:\"
-SET d1="D:\Note_Database\YouTube"
+SET d1="D:\"
+SET d2="E:\"
+SET d3="F:\"
+@REM SET d1="D:\Note_Database\YouTube"
 @REM SET d2="D:\Note_Database\Subject"
-SET d3="E:\Note_Database\YouTube"
+@REM SET d3="E:\Note_Database\YouTube"
 @REM SET d4="E:\Note_Database\Subject"
-SET d5="F:\Note_Database\YouTube"
+@REM SET d5="F:\Note_Database\YouTube"
 @REM SET d6="F:\Note_Database\Subject"
 EXIT /B
 
