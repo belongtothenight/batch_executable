@@ -16,9 +16,9 @@
 
 ## Future idea
 
-1. [Combine.](https://videoconverter.wondershare.com/video-merger/ffmpeg-merge-videos.html)
-2. [Sharpen.](https://ffmpeg.org/ffmpeg-filters.html#sharpen_005fnpp)
-3. [Resize.](https://democreator.wondershare.com/video-editor/ffmpeg-resize-video.html)
+1. [Combine videos.](https://videoconverter.wondershare.com/video-merger/ffmpeg-merge-videos.html)
+2. [Sharpen videos.](https://ffmpeg.org/ffmpeg-filters.html#sharpen_005fnpp)
+3. [Resize videos.](https://democreator.wondershare.com/video-editor/ffmpeg-resize-video.html)
 4. [Start application without waiting in a batch file.](https://stackoverflow.com/questions/2937569/how-to-start-an-application-without-waiting-in-a-batch-file)
 5. [List out all directories with mp4 files inside and generate a txt with it.](https://www.google.com/search?client=firefox-b-d&q=batch+file+recursive+directory+listing)
 6. [Use the above mentioned txt to compress all mp4 files.](https://www.youtube.com/watch?v=I1NUym5C6vY)
