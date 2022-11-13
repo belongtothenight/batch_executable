@@ -8,10 +8,10 @@ ECHO.
 ECHO.>> %record%
 
 CALL :TREEPROCESS %d1%
-CALL :TREEPROCESS %d2%
+@REM CALL :TREEPROCESS %d2%
 CALL :TREEPROCESS %d3%
 @REM CALL :TREEPROCESS %d4%
-@REM CALL :TREEPROCESS %d5%
+CALL :TREEPROCESS %d5%
 @REM CALL :TREEPROCESS %d6%
 
 CALL :DATE_TIME
@@ -29,23 +29,24 @@ FOR /F "delims=" %%F in ('dir /b /s /a-d %directory%') DO (
     SET format=!file:~-4!
     IF "!format!"==".mp4" (
         ECHO !file!
-        ECHO !file!>> %record%
+        ECHO !file!>> %mp4log%
     )
 )
 EXIT /B
 
 :VARIABLES
 SET record_folder="D:\Note_Database\Subject\CPDWG Custom Program Developed With Gidhub\batch_executable\src"
-SET record="%record_folder:~1,-1%\mp4_files.txt"
+SET record="%record_folder:~1,-1%\record.txt"
+SET mp4log="%record_folder:~1,-1%\mp4_files.txt"
 CALL :DATE_TIME
-SET d1="D:\"
-SET d2="E:\"
-SET d3="F:\"
-@REM SET d1="D:\Note_Database\YouTube"
+@REM SET d1="D:\"
+@REM SET d2="E:\"
+@REM SET d3="F:\"
+SET d1="D:\Note_Database\YouTube"
 @REM SET d2="D:\Note_Database\Subject"
-@REM SET d3="E:\Note_Database\YouTube"
+SET d3="E:\Note_Database\YouTube"
 @REM SET d4="E:\Note_Database\Subject"
-@REM SET d5="F:\Note_Database\YouTube"
+SET d5="F:\Note_Database\YouTube"
 @REM SET d6="F:\Note_Database\Subject"
 EXIT /B
 

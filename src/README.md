@@ -127,7 +127,4 @@ status: finished
 
 Possible improvement:
 
-1. Fix time acquiring bug.
-2. Probe video codec before compressing it.
-3. Show before and after filesize.
-4. Deal with filepath contain non-Unicode characters.
+1. Deal with filepath contain non-Unicode characters.
