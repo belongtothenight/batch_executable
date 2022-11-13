@@ -21,6 +21,11 @@ This file executes ["time_select_recording.py"](https://github.com/belongtotheni
 
 status: finished
 
+Possible improvement:
+
+1. Fix time acquiring bug.
+2. Echo to prompt not just record.
+
 ## <a name="2"></a>node_red.bat
 
 Launch local node-red.
@@ -32,7 +37,12 @@ Launch local node-red.
 5. Go to "http://127.0.0.1:1880/"
 
 status: worked, developing
-Not sure whether version info acquired is correct or not, not able to print out tabled version info.
+
+Possible improvement:
+
+1. Add time info.
+2. Not sure whether version info acquired is correct or not, not able to print out tabled version info.
+3. Echo to prompt not just record.
 
 ## <a name="3"></a>video_remove_frozen_frame.bat
 
@@ -44,6 +54,12 @@ Remove all frozen frames in videos.
 
 status: finished
 
+Possible improvement:
+
+1. Fix time acquiring bug.
+2. Experiment with it to only delete lagged frames.
+3. Echo to prompt not just record.
+
 ## <a name="4"></a>video_cut_sample.bat
 
 Get first few seconds of videos.
@@ -52,7 +68,12 @@ Get first few seconds of videos.
 2. Display all files in folder.
 3. Process file if it's MP4 format, and export processing result.
 
-status: not started
+status: finished
+
+Possible improvement:
+
+1. Fix time acquiring bug.
+2. Echo to prompt not just record.
 
 ## <a name="5"></a>deploy_batch.bat
 
@@ -64,6 +85,11 @@ Copy all files in "src" to directory where I can launch with single line of code
 
 status: finished
 
+Possible improvement:
+
+1. Fix time acquiring bug.
+2. Echo to prompt not just record.
+
 ## <a name="6"></a>filename_remove_space.bat
 
 Replace all spaces in filenames to "_".
@@ -72,6 +98,11 @@ Replace all spaces in filenames to "_".
 2. Process filename.
 
 status: finished
+
+Possible improvement:
+
+1. Fix time acquiring bug.
+2. Echo to prompt not just record.
 
 ## <a name="7"></a>list_mp4.bat
 
@@ -89,3 +120,9 @@ Further develpoment and usage needs to be conduct with extreme caution.
 Around 100 GB of files are lost under development process and it seems impossible to retreive them.
 
 status: finished
+
+Possible improvement:
+
+1. Fix time acquiring bug.
+2. Probe video codec before compressing it.
+3. Show before and after filesize.

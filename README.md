@@ -1,7 +1,12 @@
 # batch_executable
 
- All kinds of batch files.
- [Click this to view files.](https://github.com/belongtothenight/batch_executable/tree/main/src)
+All kinds of batch files.
+[Click this to view files.](https://github.com/belongtothenight/batch_executable/tree/main/src)
+
+## Requirement
+
+1. FFMPEG(ffmpeg, ffprobe)
+2. cmdutils(recycle)
 
 ## File Description
 
@@ -22,3 +27,5 @@
 2. [Sharpen videos.](https://ffmpeg.org/ffmpeg-filters.html#sharpen_005fnpp)
 3. [Resize videos.](https://democreator.wondershare.com/video-editor/ffmpeg-resize-video.html)
 4. [Start application without waiting in a batch file.](https://stackoverflow.com/questions/2937569/how-to-start-an-application-without-waiting-in-a-batch-file)
+5. [Probe video encoding.](https://stackoverflow.com/questions/5618363/is-there-a-way-to-use-ffmpeg-to-determine-the-encoding-of-a-file-before-transcod)
+6. [Check file size](https://stackoverflow.com/questions/1199645/how-can-i-check-the-size-of-a-file-in-a-windows-batch-script)

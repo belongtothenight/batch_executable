@@ -19,7 +19,7 @@ FOR /F "tokens=* delims=" %%x in (mp4_files_YT.txt) DO (
     ECHO compress_mp4.bat ^>^> %mydate%:%mytime% ^>^> processing !file!
     ffmpeg -v quiet -stats -y -i !file! -vcodec h264 -acodec aac !new_file!
     @REM DEL /P !file! @REM extreme dangerous
-    DEL !file!
+    recycle -f !file!
     REN !new_file! !new_filename!
     ECHO compress_mp4.bat ^>^> %mydate%:%mytime% ^>^> compressed !file!
     ECHO compress_mp4.bat ^>^> %mydate%:%mytime% ^>^> compressed !file!>> %record%
