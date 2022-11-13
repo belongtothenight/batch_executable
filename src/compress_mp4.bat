@@ -18,6 +18,7 @@ CALL :END
 ECHO compress_mp4.bat ^>^> This script is for compressing mp4 files.
 ECHO compress_mp4.bat ^>^> ffmpeg and cmdutils are required.
 ECHO compress_mp4.bat ^>^> To stop the script, please close the window instead of pressing Ctrl+C.
+PAUSE
 EXIT /B 0
 
 :VARIABLES
