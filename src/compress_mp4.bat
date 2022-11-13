@@ -41,7 +41,8 @@ FOR /F "tokens=* delims=" %%x in (%filelog%) DO (
         FOR /F "delims=" %%I IN ('ffprobe -v error -select_streams v:0 -show_entries format^=size -of default^=nokey^=1:noprint_wrappers^=1 !file! 2^>^&1') DO SET "size1=%%I"
 
         ECHO compress_mp4.bat ^>^> %mydate%:%mytime% ^>^> processing !file!
-        ffmpeg -v quiet -stats -y -i !file! -vcodec libx264 -crf 20 -acodec aac !new_file!
+        @REM ffmpeg -v quiet -stats -y -i !file! -vcodec libx264 -crf 20 -acodec aac !new_file!
+        ffmpeg -v quiet -stats -y -i !file! -vcodec h264 -acodec aac !new_file!
         recycle -f !file!
         REN !new_file! !new_filename!
 
