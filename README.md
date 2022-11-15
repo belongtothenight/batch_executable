@@ -24,7 +24,7 @@ All kinds of batch files.
 ## Future idea
 
 1. [Combine videos.](https://videoconverter.wondershare.com/video-merger/ffmpeg-merge-videos.html)
-2. [Sharpen videos.](https://ffmpeg.org/ffmpeg-filters.html#sharpen_005fnpp)
+2. [ROI Sharpen videos.](https://ffmpeg.org/ffmpeg-filters.html#sharpen_005fnpp)
 3. [Resize videos.](https://democreator.wondershare.com/video-editor/ffmpeg-resize-video.html)
 4. [Start application without waiting in a batch file.](https://stackoverflow.com/questions/2937569/how-to-start-an-application-without-waiting-in-a-batch-file)
 5. [Process filepath with chinese characters.](https://www.walkernews.net/2013/05/19/how-to-get-windows-command-prompt-displays-chinese-characters/)
