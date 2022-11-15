@@ -2,27 +2,79 @@
 SETLOCAL ENABLEDELAYEDEXPANSION
 :PROMPT
 
-CALL :VARIABLES
+@REM ================================================
+@REM Main
 
-ECHO.
-ECHO.>> %record%
+CALL :STARTPROCESS
 
-CALL :TREEPROCESS %d1%
-@REM CALL :TREEPROCESS %d2%
-CALL :TREEPROCESS %d3%
-@REM CALL :TREEPROCESS %d4%
-CALL :TREEPROCESS %d5%
-@REM CALL :TREEPROCESS %d6%
+FOR /L %%L IN (1,1,100) DO (
+    CALL :VARIABLES directory,record,mp4log,mode
+    ECHO list_mp4.bat ^>^> run: %%L
+    @REM ECHO !directory!
+    @REM ECHO !record!
+    @REM ECHO !mp4log!
+    @REM ECHO !mode!
+    ECHO.
 
-CALL :DATE_TIME
-ECHO folder_contain_mp4.bat ^>^> %mydate%:%mytime% ^>^> finished exporting log of mp4 files.
-ECHO folder_contain_mp4.bat ^>^> %mydate%:%mytime% ^>^> finished exporting log of mp4 files.>> %record%
-PAUSE
+    IF /I "!mode!"=="S" (
+        CALL :SINGLELAYERPROCESS !directory!
+    ) ELSE IF /I "!mode!"=="M" (
+        CALL :MULTILAYERPROCESS !directory!
+    ) ELSE (
+        ECHO list_mp4.bat ^>^> invalid mode
+        ECHO list_mp4.bat ^>^> typed: !mode!
+    )
+    
+    ECHO.
+    SET /P ANS=list_mp4.bat ^>^> Do you want to continue? ^(Y/[N]^)? 
+    IF /I "!ANS!" NEQ "Y" (
+        CALL :ENDPROCESS
+        GOTO :END
+    )
+    ECHO.
+)
+
+ECHO list_mp4.bat ^>^> maximum runtime reached, exiting...
+CALL :ENDPROCESS
 GOTO :END
 
-:TREEPROCESS
+@REM ================================================
+@REM Main Functions
+
+:STARTPROCESS
+ECHO list_mp4.bat ^>^> This script is for listing mp4 files.
+PAUSE
+ECHO.
+EXIT /B
+
+:VARIABLES
+SET /P directory=list_mp4.bat ^>^> MP4 directory: 
+SET record="%directory%\record.txt"
+SET mp4log="%directory%\mp4_files.txt"
+SET /P mode=list_mp4.bat ^>^> Mode selection: Single-layer or Multi-layer ^(S/M/[N]^)? 
+SET %~1=%directory%
+SET %~2=%record%
+SET %~3=%mp4log%
+SET %~4=%mode%
+EXIT /B
+
+:SINGLELAYERPROCESS
 SET directory="%~1"
-ECHO %directory%
+@REM ECHO %directory%
+FOR /F "delims=" %%F in ('dir /b /a-d %directory%') DO (
+    @REM ECHO %%F
+    SET file=%%F
+    SET format=!file:~-4!
+    IF "!format!"==".mp4" (
+        ECHO !file!
+        ECHO !file!>> %mp4log%
+    )
+)
+EXIT /B
+
+:MULTILAYERPROCESS
+SET directory="%~1"
+@REM ECHO %directory%
 FOR /F "delims=" %%F in ('dir /b /s /a-d %directory%') DO (
     @REM ECHO %%F
     SET file=%%F
@@ -34,25 +86,25 @@ FOR /F "delims=" %%F in ('dir /b /s /a-d %directory%') DO (
 )
 EXIT /B
 
-:VARIABLES
-SET record_folder="D:\Note_Database\Subject\CPDWG Custom Program Developed With Gidhub\batch_executable\src"
-SET record="%record_folder:~1,-1%\record.txt"
-SET mp4log="%record_folder:~1,-1%\mp4_files.txt"
-CALL :DATE_TIME
-@REM SET d1="D:\"
-@REM SET d2="E:\"
-@REM SET d3="F:\"
-SET d1="D:\Note_Database\YouTube"
-@REM SET d2="D:\Note_Database\Subject"
-SET d3="E:\Note_Database\YouTube"
-@REM SET d4="E:\Note_Database\Subject"
-SET d5="F:\Note_Database\YouTube"
-@REM SET d6="F:\Note_Database\Subject"
+:ENDPROCESS
+CALL :DATE_TIME mydate,mytime
+ECHO.>> %record%
+ECHO list_mp4.bat ^>^> %mydate%:%mytime% ^>^> finished exporting log of mp4 files.
+ECHO list_mp4.bat ^>^> %mydate%:%mytime% ^>^> finished exporting log of mp4 files.>> %record%
 EXIT /B
+
+@REM ================================================
+@REM Functions
 
 :DATE_TIME
 FOR /F "tokens=2" %%i in ('date /t') do set mydate=%%i
 SET mytime=%time%
+@REM ECHO %mydate%:%mytime%
+SET %~1=%mydate%
+SET %~2=%mytime%
+@REM ECHO %~1:%~2
+EXIT /B
 
 :END
+PAUSE
 ENDLOCAL
