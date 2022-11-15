@@ -59,15 +59,14 @@ SET %~4=%mode%
 EXIT /B
 
 :SINGLELAYERPROCESS
-SET directory="%~1"
+SET directory=%~1
 @REM ECHO %directory%
-FOR /F "delims=" %%F in ('dir /b /a-d %directory%') DO (
-    @REM ECHO %%F
+FOR /F "delims=" %%F in ('dir /b /a-d "%directory%"') DO (
     SET file=%%F
     SET format=!file:~-4!
     IF "!format!"==".mp4" (
-        ECHO !file!
-        ECHO !file!>> %mp4log%
+        ECHO %directory%\!file!
+        ECHO %directory%\!file!>> %mp4log%
     )
 )
 EXIT /B

@@ -9,7 +9,7 @@ CALL :VARIABLES
 CALL :WRITE_START
 CALL :MAIN
 CALL :WRITE_END
-CALL :END
+GOTO :END
 
 @REM ================================================
 @REM Functions
@@ -17,14 +17,25 @@ CALL :END
 :NOTICE
 ECHO compress_mp4.bat ^>^> This script is for compressing mp4 files.
 ECHO compress_mp4.bat ^>^> ffmpeg and cmdutils are required.
+ECHO compress_mp4.bat ^>^> MP4 log file filepath cannot contain space.
 ECHO compress_mp4.bat ^>^> To stop the script, please close the window instead of pressing Ctrl+C.
 PAUSE
 EXIT /B 0
 
 :VARIABLES
-SET record_folder="D:\Note_Database\Subject\CPDWG Custom Program Developed With Gidhub\batch_executable\src"
-SET record="%record_folder:~1,-1%\record.txt"
-SET filelog=mp4_files_YT.txt
+@REM SET record_folder="D:\Note_Database\Subject\CPDWG Custom Program Developed With Gidhub\batch_executable\src"
+@REM SET record="%record_folder:~1,-1%\record.txt"
+SET /P filepath=compress_mp4.bat ^>^> Enter the absolute path of the mp4 file log: 
+SET /P filename=compress_mp4.bat ^>^> Enter the filename of the mp4 file log: 
+SET filelog=%filepath%\%filename%
+SET record="%filepath%\record.txt"
+@REM ECHO %filelog%
+@REM ECHO %record%
+IF NOT EXIST "%filelog%" (
+    ECHO compress_mp4.bat ^>^> The file log does not exist. Please check the path and restart.
+    PAUSE
+    ENDLOCAL
+)
 EXIT /B
 
 :WRITE_START
@@ -32,12 +43,18 @@ ECHO.>> %record%
 EXIT /B
 
 :MAIN
-FOR /F "tokens=* delims=" %%x in (%filelog%) DO (
+FOR /F "delims=" %%x in (%filelog%) DO (
+    @REM ECHO %%x
     ECHO.
     SET file="%%x"
     SET new_file=!file:~0,-5!_temp.mp4^"
     SET new_filename="%%~nxx"
     SET continue=1
+
+    @REM ECHO !file!
+    @REM ECHO !new_file!
+    @REM ECHO !new_filename!
+    @REM ECHO !continue!
 
     IF NOT EXIST !file! SET continue=0
     @REM FOR /F "delims=" %%I IN ('ffprobe -v error -select_streams v:0 -show_entries stream^=codec_name -of default^=nokey^=1:noprint_wrappers^=1 !file! 2^>^&1') DO SET "encoding=%%I"
