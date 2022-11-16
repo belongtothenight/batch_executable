@@ -73,7 +73,7 @@ FOR /F "delims=" %%x in (%filelog%) DO (
 
         recycle -f !file!
         CALL :DATE_TIME mydate,mytime
-        ECHO compress_mp4.bat ^>^> !mydate!:!mytime! ^>^> deleted !new_file!
+        ECHO compress_mp4.bat ^>^> !mydate!:!mytime! ^>^> deleted !file!
 
         REN !new_file! !new_filename!
         CALL :DATE_TIME mydate,mytime
